@@ -19,7 +19,6 @@ func main() {
 	fmt.Println("	PISTOLFISH\n	Just a silly little scraper.")
 	flag.Parse()
 
-	fmt.Println("	PISTOLFISH\n	Just a silly little scraper.")
 	if Company == "" {
 		fmt.Println("Wheres your Company??")
 		return
