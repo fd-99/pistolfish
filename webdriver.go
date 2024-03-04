@@ -9,17 +9,22 @@ import (
 	"github.com/tebeka/selenium/chrome"
 )
 
-func startdriver(CompanyPage string) {
+func startdriver(CompanyPage string,chromedriverPath string) {
 	Login_Page := "https://www.linkedin.com/login/"
 	About_Page := CompanyPage
-	var chromedriverPath string
-	switch runtime.GOOS {
-	case "windows":
-		chromedriverPath = "chromedriver.exe"
-	case "linux":
-		chromedriverPath = "chromedriver"
-	case "darwin":
-		chromedriverPath = "chromedriver_mac"
+	if chromedriverPath == "" {
+		switch runtime.GOOS {
+		case "windows":
+			chromedriverPath = "chromedriver.exe"
+		case "linux":
+			chromedriverPath = "chromedriver"
+		case "darwin":
+			chromedriverPath = "chromedriver_mac"
+		}
+	}
+
+	if chromedriverPath == "" {
+		fmt.Println("Chromedriver path not provided. Using default path.")
 	}
 
 	service, err := selenium.NewChromeDriverService(chromedriverPath, 4444)
