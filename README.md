@@ -6,6 +6,6 @@ just a silly linkedin scraper
 
 to install:
 
-go get https://github.com/fd-99/pistolfish@latest
+go install https://github.com/fd-99/pistolfish@latest
 
 
