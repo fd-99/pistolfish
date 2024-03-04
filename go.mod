@@ -1,4 +1,4 @@
-module github.com/tebeka/selenium
+module github.com/fd-99/pistolfish
 
 go 1.22.0
 
