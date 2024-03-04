@@ -23,5 +23,5 @@ func main() {
 
 	fmt.Println("CompanyPage:", Company)
 
-	startdriver(Company)
+	startdriver(Company, chromedriverPath)
 }
