@@ -9,7 +9,6 @@ import (
 )
 
 func Search_Login_Page(driver selenium.WebDriver) {
-	suppressErrors()
 	fmt.Println("Waiting for feed to load")
 	i := 0
 	for {
