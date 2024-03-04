@@ -15,4 +15,4 @@ go install https://github.com/fd-99/pistolfish@latest
 
 to use: 
 
-pistolfish -c companyname
+pistolfish -c companyname -d path/to/chromedriver
