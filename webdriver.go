@@ -10,7 +10,6 @@ import (
 )
 
 func startdriver(CompanyPage string) {
-	suppressErrors() //i dont know how to fix the errors theyre in the walls
 	Login_Page := "https://www.linkedin.com/login/"
 	About_Page := CompanyPage
 	var chromedriverPath string
@@ -50,21 +49,4 @@ func startdriver(CompanyPage string) {
 	peopleData, _ := ScrapePeoplePage(driver)
 	fmt.Println("writing to CSV")
 	WriteToCSV(peopleData, CompanyPage+".csv", webURL, CompanyPage)
-}
-
-func suppressErrors() {
-	var cmd *exec.Cmd
-	switch runtime.GOOS {
-	case "windows":
-		cmd = exec.Command("cmd", "/c", "your_command_here > nul 2>&1")
-	case "linux", "darwin":
-		cmd = exec.Command("sh", "-c", "your_command_here > /dev/null 2>&1")
-
-	default:
-		panic("Unsupported OS")
-	}
-
-	err := cmd.Run()
-	if err != nil {
-	}
 }
