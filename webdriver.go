@@ -15,11 +15,11 @@ func startdriver(CompanyPage string) {
 	var chromedriverPath string
 	switch runtime.GOOS {
 	case "windows":
-		chromedriverPath = "./chromedriver.exe"
+		chromedriverPath = "chromedriver.exe"
 	case "linux":
-		chromedriverPath = "./chromedriver"
+		chromedriverPath = "chromedriver"
 	case "darwin":
-		chromedriverPath = "./chromedriver_mac"
+		chromedriverPath = "chromedriver_mac"
 	}
 
 	service, err := selenium.NewChromeDriverService(chromedriverPath, 4444)
