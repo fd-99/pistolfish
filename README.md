@@ -4,8 +4,15 @@
 
 just a silly linkedin scraper
 
+Pre-Reqs:
+This requires a chromedriver, currently this is set to your chromedriver path
+
+
 to install:
 
 go install https://github.com/fd-99/pistolfish@latest
 
 
+to use: 
+
+pistolfish -c companyname
