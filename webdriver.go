@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
 	"runtime"
 
 	"github.com/tebeka/selenium"
 	"github.com/tebeka/selenium/chrome"
 )
 
-func startdriver(CompanyPage string,chromedriverPath string) {
+func startdriver(CompanyPage string, chromedriverPath string) {
 	Login_Page := "https://www.linkedin.com/login/"
 	About_Page := CompanyPage
 	if chromedriverPath == "" {
@@ -25,6 +24,8 @@ func startdriver(CompanyPage string,chromedriverPath string) {
 
 	if chromedriverPath == "" {
 		fmt.Println("Chromedriver path not provided. Using default path.")
+	} else {
+		fmt.Println("Using Chromedriver path:", chromedriverPath)
 	}
 
 	service, err := selenium.NewChromeDriverService(chromedriverPath, 4444)
@@ -44,7 +45,12 @@ func startdriver(CompanyPage string,chromedriverPath string) {
 		"--log-level=3",
 	}})
 
-	driver, _ := selenium.NewRemote(caps, "")
+	// Create a new WebDriver using the ChromeDriver service
+	driver, err := selenium.NewRemote(caps, "")
+	if err != nil {
+		panic(err)
+	}
+	defer driver.Quit()
 
 	driver.Get(Login_Page)
 	Search_Login_Page(driver)
@@ -52,6 +58,7 @@ func startdriver(CompanyPage string,chromedriverPath string) {
 	Infinite_Scroll(driver, CompanyPage)
 	ScrapePeoplePage(driver)
 	peopleData, _ := ScrapePeoplePage(driver)
+
 	fmt.Println("writing to CSV")
 	WriteToCSV(peopleData, CompanyPage+".csv", webURL, CompanyPage)
 }
