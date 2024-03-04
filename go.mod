@@ -1,4 +1,4 @@
-module github.com/teveka/selenium
+module github.com/tebeka/selenium
 
 go 1.22.0
 
