@@ -11,7 +11,6 @@ import (
 )
 
 func Scrape_Company(driver selenium.WebDriver, Company string) (string, error) {
-	suppressErrors() //i dont know how to fix the errors theyre in the walls
 	About_Page := "https://www.linkedin.com/company/" + Company + "/about"
 	abpge := driver.Get(About_Page)
 	if abpge != nil {
@@ -31,7 +30,6 @@ func Scrape_Company(driver selenium.WebDriver, Company string) (string, error) {
 }
 
 func Infinite_Scroll(driver selenium.WebDriver, Company string) {
-	suppressErrors() //i dont know how to fix the errors theyre in the walls
 	var People_Page = "https://www.linkedin.com/company/" + Company + "/people"
 	pplpge := driver.Get(People_Page)
 	if pplpge != nil {
@@ -68,7 +66,6 @@ func Infinite_Scroll(driver selenium.WebDriver, Company string) {
 }
 
 func ScrapePeoplePage(driver selenium.WebDriver) ([]map[string]string, error) {
-	suppressErrors() //i dont know how to fix the errors theyre in the walls
 	var peopleData []map[string]string
 
 	elements, _ := driver.FindElements(selenium.ByCSSSelector, "div[class='org-people-profile-card__profile-info']")
