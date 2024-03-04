@@ -21,6 +21,9 @@ func WriteToCSV(data []map[string]string, outputFile string, webURL string, Comp
 	writer.Write(header)
 
 	for _, person := range data {
+		if person["Name"] == "Linkedin Member" {
+			continue // Skip this person
+		}
 		name := strings.ReplaceAll(strings.ReplaceAll(person["Name"], ".", ""), " ", ".")
 
 		var trimmedWebURL string
