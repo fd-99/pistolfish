@@ -16,7 +16,7 @@ func main() {
 	flag.StringVar(&chromedriverPath, "d", "", "Path to the Your chromedriver eg: /bin/epic/chromedriver")
 	flag.StringVar(&chromedriverPath, "driver", "", "Path to the Your chromedriver eg: /bin/epic/chromedriver")
 
-	fmt.Println("	PISTOLFISH\n	Just a silly little scraper.")
+	fmt.Println("	PISTOLFISH\n	Just a silly little Linkedin scraper.")
 	flag.Parse()
 
 	if Company == "" {
